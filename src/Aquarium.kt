@@ -22,21 +22,12 @@ val AquariumPlant.isGreen: Boolean
 fun AquariumPlant.print() = println("GreenLeafyPlant")
 
 
-fun nullableExample() {
-    val plant: AquariumPlant? = null
-    plant.pull()
-}
-
 fun AquariumPlant?.pull() {
     this?.apply {
         println("removing $this")
     }
 }
 
-fun propertyEmaple() {
-    val plant = AquariumPlant("Green", 50)
-    plant.isGreen
-}
 
 fun staticExample() {
     val plant = GreenLeafyPlant(size = 50)
