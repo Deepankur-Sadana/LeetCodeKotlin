@@ -20,6 +20,25 @@ class `1490 Clone N-ary Tree` {
 
 }
 
+
+// method  2, same complexity
+fun cloneTree(root: Node?): Node? {
+    if (root == null) return null
+    val clone = Node(root.`val`)
+    traverse(root, clone)
+    return clone
+}
+
+private fun traverse(root: Node, clone: Node) {
+    clone.children = ArrayList()
+    root.children.forEachIndexed { index, node ->
+        val incoming = Node(node!!.`val`)
+        (clone.children as ArrayList).add(incoming)
+        traverse(node, incoming)
+    }
+}
+
+
 class Node(var `val`: Int) {
     var children: List<Node?> = listOf()
 }
