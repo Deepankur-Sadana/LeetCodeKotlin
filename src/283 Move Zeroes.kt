@@ -1,5 +1,3 @@
-package utils
-
 class `283 Move Zeroes` {
 
 
