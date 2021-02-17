@@ -22,7 +22,9 @@ class `394 Decode String` {
                         pattern.toCharArray().forEach { p -> stack.push(p) }
                     }
                 }
-                else -> { stack.push(it)}
+                else -> {
+                    stack.push(it)
+                }
 
             }
         }
@@ -47,5 +49,16 @@ class `394 Decode String` {
         }
         if (stack.peek() == '[') stack.pop()
         return res.reversed()
+    }
+
+    class IterativeApproach {
+        var res = ""
+        fun decodeString(s: String): String {
+            s.toCharArray().forEach {
+
+            }
+
+            return res
+        }
     }
 }

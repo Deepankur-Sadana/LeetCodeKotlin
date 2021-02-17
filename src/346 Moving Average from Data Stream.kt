@@ -1,4 +1,3 @@
-
 import java.util.*
 
 
@@ -28,7 +27,33 @@ class `346 Moving Average from Data Stream` {
     }
 
 
+    class MovingAverageUsingArray(val size: Int) {
+        /** Initialize your data structure here. */
+        val arr = IntArray(size)
+        var index = 0
+        var sum = 0.0
+        var windowSize = 0
+        var toKnock = 0
 
+
+        fun next(`val`: Int): Double {
+            if (windowSize < size) {
+                index++
+                sum +=`val`
+                windowSize++
+                return sum/windowSize
+            } else {
+                sum -= arr[toKnock]
+                sum += `val`
+                arr[toKnock]= `val`
+//                index = toKnock
+                toKnock = if (index == arr.size - 1) 0 else index + 1
+                windowSize++
+                return sum/size
+            }
+        }
+
+    }
 
 
 }

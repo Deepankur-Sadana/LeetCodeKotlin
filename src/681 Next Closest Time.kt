@@ -1,3 +1,6 @@
+import java.util.*
+
+
 class `681 Next Closest Time` {
 
     /**
@@ -32,7 +35,7 @@ class `681 Next Closest Time` {
             return Time("00", "00")
         }
         if (runningTime.MM == "59") {
-            return Time(attachPrefix(runningTime.HH.toInt() + 1),"00")
+            return Time(attachPrefix(runningTime.HH.toInt() + 1), "00")
         }
         return Time(runningTime.HH, attachPrefix(runningTime.MM.toInt() + 1))
     }
@@ -40,8 +43,24 @@ class `681 Next Closest Time` {
     private fun attachPrefix(t: Int): String {
         return if (t < 10) {
             "0$t"
-        }else t.toString()
+        } else t.toString()
     }
 
     data class Time(val HH: String, val MM: String)
+}
+
+class UsingCombination {
+    fun nextClosestTime(time: String): String {
+        var cur = 60 * time.substring(0, 2).toInt()
+        cur += Integer.parseInt(time.substring(3))
+
+        val allowed = HashSet<Int>()
+        time.forEach {
+            if (it != ':') allowed.add(it - '0')
+        }
+
+        while (true) {
+        }
+
+    }
 }

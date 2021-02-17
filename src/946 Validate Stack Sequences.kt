@@ -17,24 +17,18 @@ class `946 Validate Stack Sequences` {
         val stack = Stack<Int>()
         var s = 0
         var i = 0
+        var removed = 0
         while (s < pushed.size) {
-            if (pushed[s] == popped[i]) {
+            stack.push(pushed[s])
+            while (stack.isNotEmpty() && popped[i] == stack.peek()) {
                 ++i
                 ++s
-                while (stack.isNotEmpty() && stack.peek() == popped[i]) {
-                    stack.pop()
-                    i++
-                }
-            } else {
-                stack.push(pushed[s])
-                ++s
+                stack.pop()
+                ++removed
             }
+
         }
 
-        while (stack.isNotEmpty()) {
-            if (stack.pop() != popped[i]) return false
-            i++
-        }
-        return true
+        return removed == pushed.size
     }
 }
