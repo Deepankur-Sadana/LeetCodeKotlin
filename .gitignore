@@ -1,4 +1,6 @@
-
+.idea
+#IDE metadata
+**.idea/**
 .DS_Store
 .idea/shelf
 /confluence/target
