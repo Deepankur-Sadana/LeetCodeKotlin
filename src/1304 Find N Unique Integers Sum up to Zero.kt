@@ -1,6 +1,5 @@
-
 fun main(args: Array<String>) {
-    `1304 Find N Unique Integers Sum up to Zero`().sumZero(4)
+    `1304 Find N Unique Integers Sum up to Zero`().moreElegant(5)
 }
 
 class `1304 Find N Unique Integers Sum up to Zero` {
@@ -29,10 +28,30 @@ class `1304 Find N Unique Integers Sum up to Zero` {
         while (l >= 0) {
             res[l] = curr * -1
             res[r] = curr * 1
-            curr+=1
+            curr += 1
             l--
             r++
         }
         return res
+    }
+
+    /**
+     *
+    Runtime: 230 ms, faster than 10.00% of Kotlin online submissions for Find N Unique Integers Sum up to Zero.
+    Memory Usage: 35.4 MB, less than 70.00% of Kotlin online submissions for Find N Unique Integers Sum up to Zero.
+     */
+    fun moreElegant(n: Int): IntArray {
+        val res = IntArray(n)
+        if(n == 1) return res
+        var l = 0
+        var r = n - 1
+        var start = 1
+        while (true) {
+            res[l++] = start * -1
+            res[r--] = start
+            start++
+            if (r-l<1) return res
+        }
+
     }
 }
